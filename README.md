@@ -12,7 +12,7 @@ The `www/` directory contains the web code.
 The `recipes/` directory contains the recipes detailing how to build different julia executables.
 Note that each recipe must start with the `build_` prefix, and the suffix must be a valid directory name.  So far, two examples exist: `build_vanilla.sh` and `build_libblas.sh`.  Both are targeted toward Ubuntu, building an OpenBLAS-backed Julia and a system-provided BLAS-backed Julia respectively.
 
-The `benchmarks/` directory contains the suite of julia tests to run.  Each file should contain a function, `runTest()` that returns an array of tests with their resultant metric. It should also contain a function `listTests()` that returns an array of dictionaries describing each test returned by `runTests()`.  See the files included in this repository for examples.
+The `benchmarks/` directory contains the suite of julia tests to run.  Each file should contain a function, `runTests()` that returns an array of tests with their resultant metric. It should also contain a function `listTests()` that returns an array of dictionaries describing each test returned by `runTests()`.  See the files included in this repository for examples.
 
 
 Notes
