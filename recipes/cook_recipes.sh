@@ -6,15 +6,10 @@
 # cook_recipes.sh <branch> <commit>
 #
 
-REPOS_DIR=/tmp/julia_recipe_build_area/
+source common.sh
 BRANCH=$1
 COMMIT=$2
-RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd $RECIPE_DIR
-
-# Gotta do this so that when we're run by www-data we install packages into the proper place
-export JULIA_PKGDIR=/tmp/julia_recipe_build_area/pkgdir/
 mkdir -p $JULIA_PKGDIR
 
 for recipe in $(ls build_*.sh); do
