@@ -23,7 +23,7 @@ flavor = ARGS[1]
 
 # Proactively fill out the code speed json structure.  All this information is constant across all tests
 csdata = Dict()
-csdata["commitid"] = split(Base.commit_string)[2]
+csdata["commitid"] = ARGS[3]
 csdata["project"] = "Julia"
 csdata["branch"] = ARGS[2]
 csdata["executable"] = flavor
@@ -70,7 +70,7 @@ for name in benchmarks
         csdata["units"] = test["units"]
         csdata["description"] = test["description"]
 
-        print( "POSTing to $codespeed_url/result/add/json..." )
+        print( "POSTing to $codespeed_url/result/add/json...\n\t$(to_json([csdata]))" )
         ret = Curl.post( "$codespeed_url/result/add/json/", {:json => to_json([csdata])} )
         if( !ismatch(r".*202 ACCEPTED.*", ret.headers[1][1]) )
             warn("Error submitting $(test["name"])! Saving error page to /tmp/julia_$(flavor)_$(test["name"])_codespeed.html")
