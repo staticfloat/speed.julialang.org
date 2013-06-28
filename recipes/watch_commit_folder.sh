@@ -15,10 +15,12 @@ mkdir -p $COMMITS_DIR
 chmod 777 $COMMITS_DIR
 
 while [ yes ]; do
-    inotifywait -e CREATE $COMMITS_DIR
-    for COMMIT in $(ls $COMMITS_DIR); do
-        BRANCH=$(cat $COMMITS_DIR/$COMMIT)
-        rm $COMMITS_DIR/$COMMIT
-        ./cook_recipes.sh $BRANCH $COMMIT
+    while [[ ! -z "$(ls $COMMITS_DIR)" ]]; do
+        for COMMIT in $(ls $COMMITS_DIR); do
+            BRANCH=$(cat $COMMITS_DIR/$COMMIT)
+            rm $COMMITS_DIR/$COMMIT
+            ./cook_recipes.sh $BRANCH $COMMIT
+        done
     done
+    inotifywait -e CREATE $COMMITS_DIR
 done
