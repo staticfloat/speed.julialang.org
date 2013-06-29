@@ -17,7 +17,7 @@ for recipe in $(ls build_*.sh); do
 
     # create git repo if not already created
     if [[ ! -d $REPOS_DIR/julia-$flavor ]]; then
-        git clone https://github.com/staticfloat/julia.git $REPOS_DIR/julia-$flavor
+        git clone https://github.com/JuliaLang/julia.git $REPOS_DIR/julia-$flavor
     fi
 
     pushd $REPOS_DIR/julia-$flavor
