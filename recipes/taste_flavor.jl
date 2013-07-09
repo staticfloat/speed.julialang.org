@@ -28,7 +28,7 @@ csdata["project"] = "Julia"
 csdata["branch"] = ARGS[2]
 csdata["executable"] = flavor
 csdata["environment"] = chomp(readall(`hostname`))
-csdata["result_date"] = join(split(Base.commit_string)[end-1:end], " ")[2:end-1]
+csdata["result_date"] = join(split(Base.commit_string)[end-1:end], " ")
 
 
 # Head over to the benchmarks directory and read in the names of all our test files
