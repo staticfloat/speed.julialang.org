@@ -1,6 +1,6 @@
 # Example testing file meant to measure the same as is measured in base/util.jl/peakflops()
 
-function test_flops(n=2000)
+function test_flops(n=1500)
     a = randn(n,n)
     t = @elapsed a*a
     return float64(n)^3/t
