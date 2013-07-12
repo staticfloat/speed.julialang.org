@@ -1,0 +1,3 @@
+[submodule "www/codespeed"]
+	path = www/codespeed
+	url = https://github.com/tobami/codespeed.git
