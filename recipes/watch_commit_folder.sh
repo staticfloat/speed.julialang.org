@@ -18,8 +18,8 @@ while [ yes ]; do
     while [[ ! -z "$(ls $COMMITS_DIR)" ]]; do
         for COMMIT in $(ls $COMMITS_DIR); do
             BRANCH=$(cat $COMMITS_DIR/$COMMIT)
-            rm $COMMITS_DIR/$COMMIT
             ./cook_recipes.sh $BRANCH $COMMIT
+            rm $COMMITS_DIR/$COMMIT
         done
     done
     inotifywait -e CREATE $COMMITS_DIR
