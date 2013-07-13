@@ -34,5 +34,6 @@ for recipe in $(ls build_*.sh); do
     popd >/dev/null
 
     # Run this julia build on all the tests by invoking taste_flavor.jl
+    export JULIA_FLAVOR=$flavor
     $REPOS_DIR/julia-$flavor/julia $RECIPE_DIR/taste_flavor.jl $flavor $BRANCH $COMMIT
 done
