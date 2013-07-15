@@ -1,3 +1,4 @@
+#!/bin/bash
 # julia installation that uses julia-compiled openblas
 
 BUILDOPTS="LLVM_CONFIG=llvm-config-3.2 USE_BLAS64=0"

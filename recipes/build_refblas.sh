@@ -1,3 +1,4 @@
+#!/bin/bash
 # Really basic julia installation, ripped straight from Travis compilation procedure
 
 BUILDOPTS="LLVM_CONFIG=llvm-config-3.2 USE_BLAS64=0"
