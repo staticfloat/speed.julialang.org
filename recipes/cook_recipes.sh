@@ -41,7 +41,7 @@ for recipe in $(ls build_*.sh); do
     export JULIA_BRANCH=$BRANCH
 
     # Run our new performance testsuite!
-    cd tests/perf
+    cd test/perf
     make codespeed
 
     popd >/dev/null
