@@ -36,7 +36,7 @@ for recipe in $(ls build_*.sh); do
     if [[ "$(uname)" == "Darwin" ]]; then
         export JULIA_COMMIT_DATE=$(date -jr $(git log -1 --pretty=format:%ct) -u '+%Y-%m-%d %H:%M:%S %Z')
     else
-        export JULIA_COMMIT_DATE=$(date --date=$(git log -1 --pretty=format:%ct) -u '+%Y-%m-%d %H:%M:%S %Z')
+        export JULIA_COMMIT_DATE=$(date --date=@$(git log -1 --pretty=format:%ct) -u '+%Y-%m-%d %H:%M:%S %Z')
     fi
     export JULIA_BRANCH=$BRANCH
 
