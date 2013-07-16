@@ -5,7 +5,10 @@ import urllib2
 from hashlib import sha256
 
 # This is the travis token
-from secret_key import *
+try:
+    from secret_key import *
+except:
+    print 'WARNING: No secret key imported!  Ensure you have a secret_key.py file that sets TRAVIS_KEY in it for authentication purposes!'
 
 # This file, when properly configured with uwsgi and nginx, is invoked when Travis completes
 # a successful build.  It then kicks off a compilation and benchmark run to calculate performance
