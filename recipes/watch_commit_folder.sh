@@ -6,9 +6,20 @@ cd $RECIPE_DIR
 source common.sh
 
 
-if [[ -z "$(which inotifywait)" ]]; then
-    echo "ERROR: must install inotifywait!" 1>&2
-    exit -1
+if [[ "$(uname)" == "Darwin" ]]; then
+    if [[ -z "$(which fswait)" ]]; then
+        echo "ERROR: must install fswait!" 1>&2
+        exit -1
+    fi
+    WAIT_CMD="fswait"
+fi
+
+if [[ "$(uname)" == "Linux" ]]; then
+    if [[ -z "$(which inotifywait)" ]]; then
+        echo "ERROR: must install inotifywait!" 1>&2
+        exit -1
+    fi
+    WAIT_CMD="inotifywait -e CREATE"
 fi
 
 mkdir -p $COMMITS_DIR
@@ -22,5 +33,5 @@ while [ yes ]; do
             rm $COMMITS_DIR/$COMMIT
         done
     done
-    inotifywait -e CREATE $COMMITS_DIR
+    $WAIT_CMD $COMMITS_DIR
 done
