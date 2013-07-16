@@ -13,7 +13,7 @@ from secret_key import *
 
 urls = ('/.*', 'hooks')
 # These are the only branches we'll accept from Travis
-whitelisted_branches = ['master', 'release-0.1'];
+whitelisted_branches = ['master', 'release-0.1', 'sf/perfcodespeed'];
 
 app = web.application(urls, globals())
 
