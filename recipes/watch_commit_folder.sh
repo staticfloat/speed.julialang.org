@@ -25,6 +25,7 @@ fi
 mkdir -p $COMMITS_DIR
 chmod 777 $COMMITS_DIR
 
+echo "Watching $COMMITS_DIR..."
 while [ yes ]; do
     while [[ ! -z "$(ls $COMMITS_DIR)" ]]; do
         for COMMIT in $(ls $COMMITS_DIR); do
