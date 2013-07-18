@@ -22,9 +22,9 @@ except:
 INCOMING_DIR='/tmp/julia_recipe_build_area/incoming/'
 
 try:
-    os.makedirs(path)
+    os.makedirs(INCOMING_DIR)
 except OSError as exc:
-    if exc.errno == errno.EEXIST and os.path.isdir(path):
+    if exc.errno == errno.EEXIST and os.path.isdir(INCOMING_DIR):
         pass
     else:
         raise
