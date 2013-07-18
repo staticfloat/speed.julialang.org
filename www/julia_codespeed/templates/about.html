@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }}: About this site{% endblock %}
+{% block body %}
+<div id="sidebar">
+</div>
+<div id="about" class="about_content clearfix">
+<h3>About this site</h3>
+<p>A performance-tracking and reporting site for the <a href="http://julialang.org">Julia language for technical computing</a></p>
+<p>This site runs on top of Django and Codespeed</p>
+<h3>About the benchmarks</h3>
+<p>The code can be found <a href="https://github.com/JuliaLang/julia/tree/master/test/perf">here</a>.</p>
+<h3>About Julia</h3>
+<p>Julia is a high-level, high-performance dynamic programming language for technical computing, with syntax that is familiar to users of other technical computing environments. It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library. The library, largely written in Julia itself, also integrates mature, best-of-breed C and Fortran libraries for linear algebra, random number generation, signal processing, and string processing.</p>
+<h3>About Codespeed</h3>
+Codespeed is a web application to monitor and analyze the performance of your code.
+<p>Code: <a href="http://github.com/tobami/codespeed">github.com/tobami/codespeed</a></p>
+<p>Wiki: <a href="http://wiki.github.com/tobami/codespeed/">wiki.github.com/tobami/codespeed/</a></p>
+<h3>Contact</h3>
+<p>For problems or suggestions about this website write to <a href="https://github.com/staticfloat">Elliot Saba</a></p>
+</div>
+{% endblock %}
