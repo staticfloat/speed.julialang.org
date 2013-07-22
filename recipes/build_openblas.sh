@@ -1,7 +1,7 @@
 #!/bin/bash
 # julia installation that uses julia-compiled openblas
 
-BUILDOPTS="USE_BLAS64=0"
+BUILDOPTS="USE_BLAS64=0 USE_QUIET=0"
 if [[ "$(uname)" == "Darwin" ]]; then
     SYS_LIBS="LLVM ZLIB FFTW GMP MPFR PCRE"
 elif [[ "$(uname)" == "Linux" ]]; then
