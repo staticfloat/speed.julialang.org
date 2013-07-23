@@ -7,10 +7,7 @@
 	<key>RunAtLoad</key>
 	<true/>
 	<key>KeepAlive</key>
-	<dict>
-		<key>NetworkState</key>
-		<true/>
-	</dict>
+	<true/>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/local/bin/uwsgi</string>
