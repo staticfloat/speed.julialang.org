@@ -11,5 +11,7 @@ fi
 for lib in $SYS_LIBS; do
     export BUILDOPTS="$BUILDOPTS USE_SYSTEM_$lib=1"
 done
+make $BUILDOPTS compile-atlas -j1
+make $BUILDOPTS install-atlas
 echo make $BUILDOPTS
 make $BUILDOPTS
