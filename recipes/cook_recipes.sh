@@ -46,6 +46,6 @@ for recipe in $(ls build_*.sh); do
 
     popd >/dev/null
 
-    echo "Done with $BRANCH/$COMMIT"
+    echo "Done with $flavor - $BRANCH $COMMIT"
     echo
 done
