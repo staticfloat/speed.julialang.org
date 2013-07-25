@@ -31,7 +31,7 @@ except OSError as exc:
 
 urls = ('/.*', 'hooks')
 # These are the only branches we'll accept from Travis
-whitelisted_branches = ['master', 'release-0.1', 'sf/perfcodespeed'];
+whitelisted_branches = ['master', 'release-0.2'];
 
 app = web.application(urls, globals())
 
