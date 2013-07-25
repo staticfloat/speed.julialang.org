@@ -197,6 +197,10 @@ WEBSITE_NAME = "Julia codespeed" # This name will be used in the reports RSS fee
                          #     ('myexe', '21df2423ra'),
                          #     ('myexe', 'L'),]
 
-DEF_BRANCH = "sf/perfcodespeed" # Defines the default branch to be used.
+DEF_BRANCH = "master" # Defines the default branch to be used.
                        # In git projects, this branch is usually be calles
                        # "master"
+
+# Sometimes we need to see logging, go ahead and disable django.db.backends output
+import logging 
+logging.getLogger('django.db.backends').setLevel(logging.ERROR) 
