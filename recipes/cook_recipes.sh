@@ -24,9 +24,8 @@ for recipe in $(ls build_*.sh); do
 
     # set to branch and commit as requested from outside
     git fetch
-    git checkout $BRANCH
     git reset --hard origin/$BRANCH
-    git checkout $COMMIT
+    git checkout -B $BRANCH $COMMIT
     make cleanall
 
     # Run recipe to build this julia commit
