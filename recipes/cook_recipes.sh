@@ -33,15 +33,16 @@ for recipe in $(ls build_*.sh); do
     $RECIPE_DIR/build_$flavor.sh 2>&1 | tee ../julia-${flavor}_build.log
 
     # Check to see if it was done right.  If not, try doing a distclean
-    if [[ ! -x ./julia ]]; then
+    if [[ ! -x $(readlink ./julia) ]]; then
         make distclean
+        git clean -fdx
         rm -rf deps/Rmath
         rm -rf deps/libuv
         rm -rf deps/openlibm
         git submodule update
         $RECIPE_DIR/build_$flavor.sh 2>&1 | tee ../julia-${flavor}_build.log
 
-        if [[ ! -x ./julia ]]; then
+        if [[ ! -x $(readlink ./julia) ]]; then
             echo "ERROR: Could not build $flavor - $BRANCH $COMMIT"
             echo
             continue
