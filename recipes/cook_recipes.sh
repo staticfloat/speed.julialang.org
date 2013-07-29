@@ -24,12 +24,29 @@ for recipe in $(ls build_*.sh); do
 
     # set to branch and commit as requested from outside
     git fetch
+    git checkout $BRANCH
     git reset --hard origin/$BRANCH
     git checkout $COMMIT
     make cleanall
 
     # Run recipe to build this julia commit
     $RECIPE_DIR/build_$flavor.sh 2>&1 | tee ../julia-${flavor}_build.log
+
+    # Check to see if it was done right.  If not, try doing a distclean
+    if [[ ! -x ./julia ]]; then
+        make distclean
+        rm -rf deps/Rmath
+        rm -rf deps/libuv
+        rm -rf deps/openlibm
+        git submodule update
+        $RECIPE_DIR/build_$flavor.sh 2>&1 | tee ../julia-${flavor}_build.log
+
+        if [[ ! -x ./julia ]]; then
+            echo "ERROR: Could not build $flavor - $BRANCH $COMMIT"
+            echo
+            continue
+        fi
+    fi
 
     # Grab some metadata about this build real quick
     export JULIA_FLAVOR=$flavor
