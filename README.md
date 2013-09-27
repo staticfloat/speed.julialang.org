@@ -6,8 +6,8 @@ This repository contains all configuration and code needed to run a [codespeed](
 The `etc/` directory contains configuration files for an ubuntu-based system to run an nginx server connected to a uwsgi process and django installation to listen to travis hooks and serve codespeed pages, respectively
 
 The `www/` directory contains the web code.
-`www/codespeed` is a git checkout of the codespeed install, and contains all the files needed to run the codespeed frontend on nginx.  There's nothing special in here, except a copy of the `sample_project` folder called `julia_codespeed`.  Inside this folder is where the database holding all codespeed results is stored.
-`www/julia_codespeed` is the site specifically setup for the Julia codespeed installation.
+`www/codespeed` is a git checkout of the codespeed install, and contains all the files needed to run the codespeed frontend on nginx.
+`www/julia_codespeed` is the site specifically setup for the Julia codespeed installation.  Inside this folder is where the database holding all codespeed results is stored.
 `www/posthook.py` is a python uwsgi application that is invoked by nginx to kick off compilation and testing of a new julia commit.  It does this by writing a file into a directory to notify a listening process (using inotifywait on linux, or fswait on osx) that a new build is ready to go.  Note that this code can be placed on multiple computers, and if they are properly configured with regards to the location of the codespeed server, they can all report independently.
 
 The `recipes/` directory contains the recipes detailing how to build different julia executables.
