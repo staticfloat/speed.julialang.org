@@ -12,9 +12,9 @@ fi
 OLD_TMUX=$TMUX
 unset TMUX
 
-tmux new-session -d -s "watch"
-tmux new-window -d -k -n "watch_commit" -t "watch:0"
-tmux send-keys -t "watch:0" "cd $RECIPE_DIR; ./watch_commit_folder.sh" C-m
+tmux new-session -d -s "_watch"
+tmux new-window -d -k -n "watch_commit" -t "_watch:0"
+tmux send-keys -t "_watch:0" "cd $RECIPE_DIR; ./watch_commit_folder.sh" C-m
 
 UWSGI_LOG="/tmp/uwsgi_travis-hook.log"
 NGINX_LOG="/var/log/nginx/access.log"
@@ -23,9 +23,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
     NGINX_LOG="/usr/local/var/log/nginx"
 fi
 
-tmux new-window -d -n "logs" -t "watch:1"
-tmux send-keys -t "watch:1" "tail -f $UWSGI_LOG" C-m
-tmux split-window -d -v -t "watch:1"
-tmux send-keys -t "watch:1.1" "tail -f $NGINX_LOG" C-m
+tmux new-window -d -n "logs" -t "_watch:1"
+tmux send-keys -t "_watch:1" "tail -f $UWSGI_LOG" C-m
+tmux split-window -d -v -t "_watch:1"
+tmux send-keys -t "_watch:1.1" "tail -f $NGINX_LOG" C-m
 
 export TMUX=$OLD_TMUX
