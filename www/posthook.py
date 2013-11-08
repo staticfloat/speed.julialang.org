@@ -43,12 +43,15 @@ class hooks:
         # Parse the commit and branch
         data = urllib2.unquote(data)
         data = json.loads(data[8:]) # skip "payload="
-        commit = data['commit']
-        branch = data['branch']
 
-        if branch in whitelisted_branches:
-            # Note, if you change the bash script to a different recipe_build_area, you must change this one too!
-            open(os.path.join(INCOMING_DIR,commit), "w").write(branch)
+        # Only do the rest if this build passed
+        if data['status_message'] == 'Passed':
+            commit = data['commit']
+            branch = data['branch']
+
+            if branch in whitelisted_branches:
+                # Note, if you change the bash script to a different recipe_build_area, you must change this one too!
+                open(os.path.join(INCOMING_DIR,commit), "w").write(branch)
 
         open('/tmp/travis-request.txt', 'w').write(urllib2.unquote(web.data()))
         open('/tmp/travis-headers.txt', 'w').write(str(web.ctx.env))
