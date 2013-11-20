@@ -59,7 +59,7 @@ for recipe in $(ls build_*.sh); do
 
     # Run our new performance testsuite!
     cd test/perf
-    make codespeed
+    JULIA_PKGDIR=$JULIA_PKGDIR make codespeed
 
     popd >/dev/null
 
