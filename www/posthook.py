@@ -20,7 +20,6 @@ except:
 
 # NOTE, if you change the recipe_build_area in common.sh, you will need to change it here as well!
 INCOMING_DIR='/home/sabae/tmp/julia_recipe_build_area/incoming/'
-open("/tmp/posthook.log","w").write("INCOMING_DIR: %s\n"%(INCOMING_DIR))
 
 try:
     os.makedirs(INCOMING_DIR)
@@ -52,8 +51,5 @@ class hooks:
             if branch in whitelisted_branches:
                 # Note, if you change the bash script to a different recipe_build_area, you must change this one too!
                 open(os.path.join(INCOMING_DIR,commit), "w").write(branch)
-
-        open('/tmp/travis-request.txt', 'w').write(urllib2.unquote(web.data()))
-        open('/tmp/travis-headers.txt', 'w').write(str(web.ctx.env))
 
 application = app.wsgifunc()
