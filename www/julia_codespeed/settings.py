@@ -4,6 +4,7 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+USE_TZ = True
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 TOPDIR = os.path.split(BASEDIR)[1]
@@ -100,7 +101,9 @@ if DEBUG:
     MIDDLEWARE_CLASSES += ('settings.LogUncatchedErrors',)
 
     # set shown level of logging output to debug
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
+
+    
 
 ROOT_URLCONF = '{0}.urls'.format(TOPDIR)
 

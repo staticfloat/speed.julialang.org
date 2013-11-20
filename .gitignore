@@ -2,3 +2,4 @@
 *.db
 secret_key.py
 www/julia_codespeed/repos/*
+www/julia_codespeed/sitestatic/*
