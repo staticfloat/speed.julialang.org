@@ -19,7 +19,7 @@ except:
 # of that specific commit on this machine
 
 # NOTE, if you change the recipe_build_area in common.sh, you will need to change it here as well!
-INCOMING_DIR=os.path.expanduser('~/tmp/julia_recipe_build_area/incoming/')
+INCOMING_DIR='/home/sabae/tmp/julia_recipe_build_area/incoming/'
 open("/tmp/posthook.log","w").write("INCOMING_DIR: %s\n"%(INCOMING_DIR))
 
 try:
