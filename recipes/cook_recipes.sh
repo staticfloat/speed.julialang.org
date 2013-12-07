@@ -10,7 +10,7 @@ source common.sh
 BRANCH=$1
 COMMIT=$2
 
-mkdir -p $JULIA_PKGDIR
+#mkdir -p $JULIA_PKGDIR
 
 for recipe in $(ls build_*.sh); do
     flavor=$(echo $recipe | sed -E 's/build_(.*)\.sh/\1/g')
@@ -59,7 +59,8 @@ for recipe in $(ls build_*.sh); do
 
     # Run our new performance testsuite!
     cd test/perf
-    JULIA_PKGDIR=$JULIA_PKGDIR make codespeed
+    #JULIA_PKGDIR=$JULIA_PKGDIR 
+    make codespeed
 
     popd >/dev/null
 
