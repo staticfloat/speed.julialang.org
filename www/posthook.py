@@ -4,6 +4,7 @@ import json
 import urllib2
 import logging
 import os, os.path, errno
+import platform
 from hashlib import sha256
 
 logger = logging.getLogger(__name__)
@@ -19,7 +20,11 @@ except:
 # of that specific commit on this machine
 
 # NOTE, if you change the recipe_build_area in common.sh, you will need to change it here as well!
+
 INCOMING_DIR='/home/sabae/tmp/julia_recipe_build_area/incoming/'
+if platform.system() == 'Darwin':
+    INCOMING_DIR='/Users/sabae/tmp/julia_recipe_build_area/incoming/'
+
 
 try:
     os.makedirs(INCOMING_DIR)
