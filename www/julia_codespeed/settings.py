@@ -2,7 +2,7 @@
 # Django settings for a speedcenter project.
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 USE_TZ = True
 
