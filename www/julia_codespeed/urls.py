@@ -3,7 +3,7 @@
 import os.path
 
 from django.conf import settings
-from django.conf.urls.defaults import patterns, include, handler404, handler500
+from django.conf.urls import patterns, include, handler404, handler500
 #from django.views.generic.simple import redirect_to
 from django.core.urlresolvers import reverse
 from django.contrib import admin
