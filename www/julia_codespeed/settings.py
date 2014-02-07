@@ -108,7 +108,7 @@ if DEBUG:
 ROOT_URLCONF = '{0}.urls'.format(TOPDIR)
 
 TEMPLATE_DIRS = (
-    os.path.join(BASEDIR, 'templates'),
+    os.path.join(BASEDIR, 'templates', 'codespeed'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
