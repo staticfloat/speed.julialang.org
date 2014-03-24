@@ -3,8 +3,8 @@
 import os.path
 
 from django.conf import settings
-from django.conf.urls import patterns, include, handler404, handler500
-#from django.views.generic.simple import redirect_to
+from django.conf.urls import patterns, include
+from django.views.generic import RedirectView
 from django.core.urlresolvers import reverse
 from django.contrib import admin
 
@@ -12,14 +12,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-)
-
-urlpatterns += patterns(
-    '',
-)
-
-urlpatterns += patterns(
-    '',
     (r'^', include('codespeed.urls')),
 )
 

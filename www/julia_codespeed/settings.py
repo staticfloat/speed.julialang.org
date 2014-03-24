@@ -2,7 +2,7 @@
 # Django settings for a speedcenter project.
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 USE_TZ = True
 
@@ -98,7 +98,7 @@ if DEBUG:
                                  (request.build_absolute_uri(),
                                   traceback.format_exc()))
     # And add it to the middleware classes
-    MIDDLEWARE_CLASSES += ('settings.LogUncatchedErrors',)
+    MIDDLEWARE_CLASSES += ('julia_codespeed.settings.LogUncatchedErrors',)
 
     # set shown level of logging output to debug
     logging.basicConfig(level=logging.INFO)
