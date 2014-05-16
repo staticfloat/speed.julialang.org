@@ -20,7 +20,7 @@ UWSGI_LOG="/tmp/uwsgi_travis-hook.log"
 NGINX_LOG="/var/log/nginx/access.log"
 if [[ "$(uname)" == "Darwin" ]]; then
     UWSGI_LOG="/usr/local/var/log/uwsgi_travis-hook.log"
-    NGINX_LOG="/usr/local/var/log/nginx"
+    NGINX_LOG="/usr/local/var/log/nginx/*.log"
 fi
 
 tmux new-window -d -n "logs" -t "_watch:1"
